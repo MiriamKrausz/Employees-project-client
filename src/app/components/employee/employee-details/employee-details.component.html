@@ -1,0 +1,23 @@
+<mat-card [ngStyle]="cardStyles">
+  <mat-card-header>
+    <mat-card-title>{{ employee.firstName }} {{ employee.surname }}</mat-card-title>
+    <mat-icon class="close" (click)="closeDialog()">close</mat-icon>
+  </mat-card-header>
+  <mat-card-content>
+    <p><mat-icon>perm_identity</mat-icon><strong>Identity Number:</strong> {{ employee.identityNumber }}</p>
+    <p><mat-icon>person</mat-icon><strong>Gender:</strong> {{ employee.gender }}</p>
+    <p><mat-icon>cake</mat-icon><strong>Date of Birth:</strong> {{ employee.dateOfBirth | date }}</p>
+    <p><mat-icon>work</mat-icon><strong>Beginning of Work:</strong> {{ employee.beginningOfWork | date }}</p>
+    <p><strong>Positions:</strong></p>
+    <ul>
+      <li *ngFor="let position of employee.positions">
+        <span class="material-symbols-outlined">
+          next_week
+        </span> {{ position.position.name }} ({{ position.entryDate | date }}){{ position.isAdministrative ? '
+        -Administrative' : '' }}
+      </li>
+    </ul>
+  </mat-card-content>
+  <mat-card-actions [ngStyle]="actionsStyles">
+  </mat-card-actions>
+</mat-card>

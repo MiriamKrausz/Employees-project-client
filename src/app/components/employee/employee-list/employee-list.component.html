@@ -1,0 +1,68 @@
+<div class="table-container">
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <div class="center-spinner">
+        <mat-progress-spinner *ngIf="isLoading" mode="indeterminate" diameter="40"></mat-progress-spinner>
+    </div>
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="identityNumber">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Identity Number </th>
+                <td mat-cell *matCellDef="let row" (click)="viewDetails(row)" style="cursor: pointer;">
+                    {{row.identityNumber}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="firstName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+                <td mat-cell *matCellDef="let row" (click)="viewDetails(row)" style="cursor: pointer;">
+                    {{row.firstName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="surname">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Surname </th>
+                <td mat-cell *matCellDef="let row" (click)="viewDetails(row)" style="cursor: pointer;">
+                    {{row.surname}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="beginningOfWork">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Beginning of work </th>
+                <td mat-cell *matCellDef="let row" (click)="viewDetails(row)" style="cursor: pointer;">
+                    {{ formatDate(row.beginningOfWork) }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let row" class="actions-cell">
+                    <div>
+                        <button mat-icon-button color="primary" matTooltip="edit" (click)="editEmployee(row)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button color="primary" matTooltip="delete" mat-icon-button
+                            (click)="deleteEmployee(row)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="8">No data matching the filter "{{input.value}}"</td>
+            </tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5,10, 20, 40]" aria-label="Select page of users"></mat-paginator>
+        <button mat-icon-button class="add-button" aria-label="Add" (click)="addEmployee()" color="primary"
+            matTooltip="Add employee">
+            <span class="material-symbols-outlined">
+                person_add
+            </span>
+        </button>
+
+    </div>
+</div>

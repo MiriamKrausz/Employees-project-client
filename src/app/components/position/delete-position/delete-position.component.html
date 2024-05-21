@@ -1,0 +1,9 @@
+
+<h2 mat-dialog-title>Confirm Position Deletion</h2>
+<mat-dialog-content>
+    <p>Are you sure you want to delete the position "{{ data.positionName }}"?</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button mat-button color="warn" [mat-dialog-close]="true">Delete</button>
+</mat-dialog-actions>

@@ -1,0 +1,48 @@
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+
+.toolbar-item-spacer {
+  flex: 1 1 auto;
+}
+
+.app-container {
+  height: 82%;
+  margin: 0;
+}
+
+.app-sidenav {
+  width: 300px;
+}
+
+.footer-toolbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+}
+
+.footer-text {
+  margin: 0 20px;
+}
+
+.footer-spacer {
+  flex-grow: 1;
+}
+
+
+mat-toolbar {
+  height: 80px;
+}
+
+.close-button {
+  left: 80%;
+  margin-top: 9px;
+}
