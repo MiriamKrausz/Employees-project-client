@@ -1,6 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCwmL9nh60GZXP1QTKMR7HXPZsJSIqb4vo",
+      authDomain: "employees-project-client.firebaseapp.com",
+      projectId: "employees-project-client",
+      storageBucket: "employees-project-client.appspot.com",
+      messagingSenderId: "357588950768",
+      appId: "1:357588950768:web:40505cfe20f1fca34dec35"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
   <meta charset="utf-8">
   <title>Employee managment</title>
   <base href="/">
